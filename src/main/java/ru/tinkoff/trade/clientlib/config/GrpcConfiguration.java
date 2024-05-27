@@ -17,7 +17,7 @@ import ru.tinkoff.piapi.contract.v1.InstrumentsServiceGrpc.InstrumentsServiceStu
 import ru.tinkoff.piapi.contract.v1.MarketDataServiceGrpc;
 import ru.tinkoff.piapi.contract.v1.MarketDataServiceGrpc.MarketDataServiceStub;
 import ru.tinkoff.piapi.contract.v1.MarketDataStreamServiceGrpc;
-import ru.tinkoff.piapi.contract.v1.MarketDataStreamServiceGrpc.MarketDataStreamServiceStub;
+import ru.tinkoff.piapi.contract.v1.MarketDataStreamServiceGrpc.MarketDataStreamServiceBlockingStub;
 import ru.tinkoff.piapi.contract.v1.OperationsServiceGrpc;
 import ru.tinkoff.piapi.contract.v1.OperationsServiceGrpc.OperationsServiceStub;
 import ru.tinkoff.piapi.contract.v1.OperationsStreamServiceGrpc;
@@ -76,10 +76,11 @@ public class GrpcConfiguration {
   }
 
   @Bean
-  MarketDataStreamServiceStub marketDataStreamServiceStub(
+  MarketDataStreamServiceBlockingStub marketDataStreamServiceBlockingStub(
       @Qualifier("tinkoffCallCredentials") CallCredentials creds,
       @Qualifier("tinkoffChannel") ManagedChannel tinkoffChannel) {
-    return MarketDataStreamServiceGrpc.newStub(tinkoffChannel)
+    return MarketDataStreamServiceGrpc
+        .newBlockingStub(tinkoffChannel)
         .withCallCredentials(creds);
   }
 

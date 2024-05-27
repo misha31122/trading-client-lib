@@ -3,7 +3,8 @@ package ru.tinkoff.trade.clientlib.service;
 import static ru.tinkoff.piapi.contract.v1.SubscriptionAction.SUBSCRIPTION_ACTION_SUBSCRIBE;
 import static ru.tinkoff.piapi.contract.v1.SubscriptionAction.SUBSCRIPTION_ACTION_UNSUBSCRIBE;
 
-import io.grpc.stub.StreamObserver;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 import ru.tinkoff.piapi.contract.v1.CandleInstrument;
 import ru.tinkoff.piapi.contract.v1.MarketDataResponse;
 import ru.tinkoff.piapi.contract.v1.MarketDataServerSideStreamRequest;
-import ru.tinkoff.piapi.contract.v1.MarketDataStreamServiceGrpc.MarketDataStreamServiceStub;
+import ru.tinkoff.piapi.contract.v1.MarketDataStreamServiceGrpc.MarketDataStreamServiceBlockingStub;
 import ru.tinkoff.piapi.contract.v1.SubscribeCandlesRequest;
 import ru.tinkoff.piapi.contract.v1.SubscriptionInterval;
 
@@ -25,16 +26,15 @@ import ru.tinkoff.piapi.contract.v1.SubscriptionInterval;
 @Service
 public class MarketDataStreamServiceClient {
 
-  private final MarketDataStreamServiceStub stub;
+  private final MarketDataStreamServiceBlockingStub stub;
 
 
-  public void startGetCandlesStreamData(Set<String> figiSet,
-      SubscriptionInterval interval,
-      StreamObserver<MarketDataResponse> streamObserver) {
+  public Iterator<MarketDataResponse> startGetCandlesStreamData(Set<String> figiSet,
+      SubscriptionInterval interval) {
 
     if (figiSet == null || figiSet.isEmpty()) {
       log.info("Figi set is empty");
-      return;
+      return Collections.emptyIterator();
     }
 
     var request = MarketDataServerSideStreamRequest.newBuilder()
@@ -48,12 +48,11 @@ public class MarketDataStreamServiceClient {
             .build())
         .build();
 
-    stub.marketDataServerSideStream(request, streamObserver);
+    return stub.marketDataServerSideStream(request);
   }
 
   public void stopGetCandlesStreamData(Set<String> figiSet,
-      SubscriptionInterval interval,
-      StreamObserver<MarketDataResponse> streamObserver) {
+      SubscriptionInterval interval) {
 
     var request = MarketDataServerSideStreamRequest.newBuilder()
         .setSubscribeCandlesRequest(SubscribeCandlesRequest.newBuilder()
@@ -66,7 +65,7 @@ public class MarketDataStreamServiceClient {
             .build())
         .build();
 
-    stub.marketDataServerSideStream(request, streamObserver);
+    stub.marketDataServerSideStream(request);
   }
 
 
