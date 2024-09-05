@@ -41,11 +41,11 @@ import ru.tinkoff.piapi.contract.v1.UsersServiceGrpc.UsersServiceStub;
 @ComponentScan(basePackages = "ru.tinkoff.trade.grpcclient")
 public class GrpcConfiguration {
 
-  @Value("${tinkoff.token}")
+  @Value("${tinkoff.api.grpc.client.token}")
   private String token;
-  @Value("${tinkoff.grpc.client.host}")
+  @Value("${tinkoff.api.grpc.client.host}")
   private String host;
-  @Value("${tinkoff.grpc.client.port}")
+  @Value("${tinkoff.api.grpc.client.port}")
   private Integer port;
 
   @Bean
