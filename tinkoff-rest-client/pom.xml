@@ -119,6 +119,12 @@
                 <delegatePattern>true</delegatePattern>
                 <useSpringBoot3>true</useSpringBoot3>
               </configOptions>
+              <typeMappings>
+                <typeMapping>OffsetDateTime=LocalDateTime</typeMapping>
+              </typeMappings>
+              <importMappings>
+                <importMapping>java.time.OffsetDateTime=java.time.LocalDateTime</importMapping>
+              </importMappings>
             </configuration>
           </execution>
         </executions>
