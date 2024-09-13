@@ -35,6 +35,6 @@ mvnw.cmd
 target/
 .idea/
 /.mvn/
-!src/main/**/target/
-!src/test/**/target/
+!tinkoff-grpc-client/src/main/**/target/
+!tinkoff-grpc-client/src/test/**/target/
 !setting.xml
