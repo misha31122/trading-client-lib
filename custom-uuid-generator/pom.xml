@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ru.tinkoff.trade</groupId>
+    <artifactId>trading-helping-lib-parent</artifactId>
+    <version>0.0.2</version>
+  </parent>
+
+  <artifactId>custom-uuid-generator</artifactId>
+  <name>Custom uuid generator</name>
+  <description>Служебная библиотека гнерации uuid версии v7, v6, v1
+  </description>
+  <packaging>jar</packaging>
+  <version>0.0.1</version>
+
+  <properties>
+    <java-uuid-generator.version>5.0.0</java-uuid-generator.version>
+  </properties>
+
+  <dependencies>
+    <!--UUID генератор, нужен для генерации uuid V7-->
+    <dependency>
+      <groupId>com.fasterxml.uuid</groupId>
+      <artifactId>java-uuid-generator</artifactId>
+      <version>${java-uuid-generator.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-core</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>21</source>
+          <target>21</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -20,11 +20,11 @@ import ru.tinkoff.trade.restclient.property.TinkoffApiProperty;
 @RequiredArgsConstructor
 public class MinuteHistoricalCandleServiceApi {
 
-  private final RestTemplate tinkoffApiRestTemplate;
   private final TinkoffApiProperty property;
 
   public Resource getMinuteHistoricalCandleZipArchiveByFigi(String figi)
       throws RestClientException {
+    RestTemplate restTemplate = new RestTemplate();
     HttpHeaders headers = new HttpHeaders();
     headers.set("Content-Type", "application/zip");
     headers.set("Authorization", "Bearer " + property.getToken());
@@ -37,7 +37,7 @@ public class MinuteHistoricalCandleServiceApi {
         .toUriString();
 
     try {
-      ResponseEntity<Resource> response = tinkoffApiRestTemplate.exchange(url, HttpMethod.GET,
+      ResponseEntity<Resource> response = restTemplate.exchange(url, HttpMethod.GET,
           request, Resource.class);
 
       Resource zipFileContent = response.getBody();

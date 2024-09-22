@@ -21,6 +21,7 @@
   <modules>
     <module>tinkoff-grpc-client</module>
     <module>tinkoff-rest-client</module>
+    <module>custom-uuid-generator</module>
   </modules>
 
   <properties>
