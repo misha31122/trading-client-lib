@@ -37,7 +37,8 @@ public class MinuteHistoricalCandleServiceApi {
         .toUriString();
 
     try {
-      ResponseEntity<Resource> response = restTemplate.exchange(url, HttpMethod.GET, request, Resource.class);
+      ResponseEntity<Resource> response = restTemplate.exchange(url, HttpMethod.GET, request,
+          Resource.class);
       Resource zipFileContent = response.getBody();
       log.info("Successfully get resource");
       return zipFileContent;
