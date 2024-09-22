@@ -10,12 +10,12 @@
     <relativePath/>
   </parent>
 
-  <name>Integration libraries for trading</name>
-  <description>Библиотеки для интеграций</description>
+  <name>Trading helping lib</name>
+  <description>Вспомогательные библиотеки для трейдинга</description>
 
   <groupId>ru.tinkoff.trade</groupId>
-  <artifactId>trading-client-lib-parent</artifactId>
-  <version>0.0.1</version>
+  <artifactId>trading-helping-lib-parent</artifactId>
+  <version>0.0.2</version>
   <packaging>pom</packaging>
 
   <modules>

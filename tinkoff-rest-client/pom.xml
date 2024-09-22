@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>ru.tinkoff.trade</groupId>
-    <artifactId>trading-client-lib-parent</artifactId>
-    <version>0.0.1</version>
+    <artifactId>trading-helping-lib-parent</artifactId>
+    <version>0.0.2</version>
   </parent>
 
   <artifactId>tinkoff-rest-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>Trading rest client</name>
   <description>Rest client library for tinkoff api</description>
 
