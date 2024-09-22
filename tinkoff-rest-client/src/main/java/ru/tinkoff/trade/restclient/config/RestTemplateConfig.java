@@ -21,6 +21,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.client5.http.classic.HttpClient;
@@ -32,6 +33,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -87,6 +89,7 @@ public class RestTemplateConfig {
   private MappingJackson2HttpMessageConverter prepareSpecificMessageConverter() {
     var objectMapper = defaultObjectMapper();
     var converter = new MappingJackson2HttpMessageConverter();
+    converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
     converter.setObjectMapper(objectMapper);
     return converter;
   }

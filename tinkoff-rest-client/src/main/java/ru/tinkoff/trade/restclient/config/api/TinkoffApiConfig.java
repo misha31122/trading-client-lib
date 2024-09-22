@@ -24,6 +24,7 @@ import ru.tinkoff.trade.restclient.property.TinkoffApiProperty;
 public class TinkoffApiConfig {
 
   private final TinkoffApiProperty tinkoffApiProperty;
+  private static final String REST_SUB_PATH = "/rest";
 
 
   @Bean(name = "instrumentsClientApi")
@@ -32,7 +33,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new InstrumentsServiceApi(apiClient);
   }
@@ -43,7 +44,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new MarketDataServiceApi(apiClient);
   }
@@ -54,7 +55,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new MarketDataStreamServiceApi(apiClient);
   }
@@ -65,7 +66,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new OperationsServiceApi(apiClient);
   }
@@ -76,7 +77,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new OperationsStreamServiceApi(apiClient);
   }
@@ -87,7 +88,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new OrdersServiceApi(apiClient);
   }
@@ -98,7 +99,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new OrdersStreamServiceApi(apiClient);
   }
@@ -109,7 +110,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new SandboxServiceApi(apiClient);
   }
@@ -120,7 +121,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new StopOrdersServiceApi(apiClient);
   }
@@ -131,7 +132,7 @@ public class TinkoffApiConfig {
     ru.tinkoff.trade.restclient.invest.ApiClient apiClient = new ru.tinkoff.trade.restclient.invest.ApiClient(
         tinkoffApiRestTemplate);
     apiClient.setBearerToken(tinkoffApiProperty.getToken());
-    apiClient.setBasePath(tinkoffApiProperty.getBasePath());
+    apiClient.setBasePath(tinkoffApiProperty.getBasePath() + REST_SUB_PATH);
 
     return new UsersServiceApi(apiClient);
   }

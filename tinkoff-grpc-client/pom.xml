@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>ru.tinkoff.trade</groupId>
-    <artifactId>trading-client-lib-parent</artifactId>
-    <version>0.0.1</version>
+    <artifactId>trading-helping-lib-parent</artifactId>
+    <version>0.0.2</version>
   </parent>
 
   <artifactId>tinkoff-grpc-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>Trading grpc client</name>
   <description>GRPC client library for tinkoff api</description>
 
