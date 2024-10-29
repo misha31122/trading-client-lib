@@ -58,7 +58,7 @@ public class GrpcConfiguration {
     ChannelCredentials credentials = TlsChannelCredentials.newBuilder()
         .trustManager(InsecureTrustManagerFactory.INSTANCE.getTrustManagers())
         .build();
-    return Grpc.newChannelBuilderForAddress(host, port, credentials).build();
+    return Grpc.newChannelBuilderForAddress(host, port, credentials).enableRetry().build();
   }
 
   @Bean

@@ -3,23 +3,15 @@ package ru.tinkoff.trade.restclient.config;
 import static java.util.Collections.singletonList;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import lombok.RequiredArgsConstructor;
@@ -59,7 +51,8 @@ public class RestTemplateConfig {
   }
 
   @Bean("financeMarkerApiRestTemplate")
-  public RestTemplate financeMarkerApiRestTemplate(FinanceMarkerApiProperty financeMarkerApiProperty) {
+  public RestTemplate financeMarkerApiRestTemplate(
+      FinanceMarkerApiProperty financeMarkerApiProperty) {
     RestTemplate restTemplate = prepareBaseRestTemplate(financeMarkerApiProperty.getRest());
     restTemplate.setMessageConverters(singletonList(prepareSpecificMessageConverter()));
     return restTemplate;
@@ -72,7 +65,8 @@ public class RestTemplateConfig {
 
     RequestConfig requestConfig = RequestConfig
         .custom()
-        .setConnectionRequestTimeout(Timeout.ofMilliseconds(restProperties.getConnRequestTimeoutMillis()))
+        .setConnectionRequestTimeout(
+            Timeout.ofMilliseconds(restProperties.getConnRequestTimeoutMillis()))
         .setResponseTimeout(Timeout.ofMilliseconds(restProperties.getConnResponseTimeoutMillis()))
         .build();
 
@@ -94,30 +88,9 @@ public class RestTemplateConfig {
     return converter;
   }
 
-  private static class OffsetDateTimeDeserializer extends JsonDeserializer<OffsetDateTime> {
-
-    @Override
-    public OffsetDateTime deserialize(JsonParser parser, DeserializationContext context)
-        throws IOException {
-      return OffsetDateTime.parse(parser.getText(), DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-    }
-  }
-
-  private static class OffsetDateTimeSerializer extends JsonSerializer<OffsetDateTime> {
-
-    @Override
-    public void serialize(OffsetDateTime value, JsonGenerator gen, SerializerProvider serializers)
-        throws IOException {
-      gen.writeString(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(value));
-    }
-  }
-
   private ObjectMapper defaultObjectMapper() {
     var objectMapper = new ObjectMapper()
         .registerModule(new JavaTimeModule()
-            .addSerializer(
-                OffsetDateTime.class, new OffsetDateTimeSerializer())
-            .addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer())
             .addDeserializer(LocalDate.class,
                 new LocalDateDeserializer(DateTimeFormatter.ISO_LOCAL_DATE))
             .addDeserializer(LocalDateTime.class,
