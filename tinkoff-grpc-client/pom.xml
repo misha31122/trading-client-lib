@@ -16,8 +16,7 @@
 
 
   <properties>
-    <grpc-client-spring-boot-starter.version>2.15.0.RELEASE
-    </grpc-client-spring-boot-starter.version>
+    <grpc-client-spring-boot-starter.version>3.1.0.RELEASE</grpc-client-spring-boot-starter.version>
   </properties>
 
 
