@@ -1,9 +1,9 @@
-package ru.vtb.obuf.hibernate.uuid;
+package ru.tinkoff.trade.hibernate.uuid;
 
 import static org.hibernate.generator.EventTypeSets.INSERT_ONLY;
 import static org.hibernate.internal.util.ReflectHelper.getPropertyType;
-import static ru.vtb.obuf.hibernate.annotations.CustomUuidGenerator.Style.V1;
-import static ru.vtb.obuf.hibernate.annotations.CustomUuidGenerator.Style.V6;
+import static ru.tinkoff.trade.hibernate.annotations.CustomUuidGenerator.Style.V1;
+import static ru.tinkoff.trade.hibernate.annotations.CustomUuidGenerator.Style.V6;
 
 import java.lang.reflect.Member;
 import java.util.EnumSet;
@@ -17,11 +17,11 @@ import org.hibernate.generator.GeneratorCreationContext;
 import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
 import org.hibernate.type.descriptor.java.UUIDJavaType;
 import org.hibernate.type.descriptor.java.UUIDJavaType.ValueTransformer;
-import ru.vtb.obuf.hibernate.annotations.CustomUuidGenerator;
-import ru.vtb.obuf.hibernate.uuid.strategy.UUIDOneVersionGeneratorStrategy;
-import ru.vtb.obuf.hibernate.uuid.strategy.UUIDSevenVersionGeneratorStrategy;
-import ru.vtb.obuf.hibernate.uuid.strategy.UUIDSixVersionGeneratorStrategy;
-import ru.vtb.obuf.hibernate.uuid.strategy.ValueGenerator;
+import ru.tinkoff.trade.hibernate.uuid.strategy.UUIDSevenVersionGeneratorStrategy;
+import ru.tinkoff.trade.hibernate.uuid.strategy.UUIDSixVersionGeneratorStrategy;
+import ru.tinkoff.trade.hibernate.uuid.strategy.ValueGenerator;
+import ru.tinkoff.trade.hibernate.annotations.CustomUuidGenerator;
+import ru.tinkoff.trade.hibernate.uuid.strategy.UUIDOneVersionGeneratorStrategy;
 
 /**
  * Generates {@link UUID}s.

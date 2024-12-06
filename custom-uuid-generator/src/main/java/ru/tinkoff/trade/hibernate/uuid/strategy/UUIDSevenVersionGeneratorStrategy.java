@@ -1,4 +1,4 @@
-package ru.vtb.obuf.hibernate.uuid.strategy;
+package ru.tinkoff.trade.hibernate.uuid.strategy;
 
 import com.fasterxml.uuid.Generators;
 import java.util.UUID;

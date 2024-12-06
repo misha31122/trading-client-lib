@@ -13,7 +13,7 @@
 ```xml
 
 <dependency>
-  <groupId>ru.vtb.obuf</groupId>
+  <groupId>ru.tinkoff.trade</groupId>
   <artifactId>obuf-custom-uuid-generator</artifactId>
   <version>${obuf-custom-uuid-generator.version}</version>
 </dependency>
