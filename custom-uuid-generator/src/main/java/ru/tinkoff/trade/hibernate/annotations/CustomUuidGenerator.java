@@ -1,10 +1,10 @@
-package ru.vtb.obuf.hibernate.annotations;
+package ru.tinkoff.trade.hibernate.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 import org.hibernate.annotations.IdGeneratorType;
 import org.hibernate.annotations.ValueGenerationType;
-import ru.vtb.obuf.hibernate.uuid.CustomUuidGeneratorSrv;
+import ru.tinkoff.trade.hibernate.uuid.CustomUuidGeneratorSrv;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
