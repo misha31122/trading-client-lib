@@ -68,13 +68,6 @@
       </exclusions>
     </dependency>
     <!--Web. END-->
-
-    <!--Dto -->
-    <dependency>
-      <groupId>ru.tinkoff.trade</groupId>
-      <artifactId>telegrambot-chatting-dto</artifactId>
-      <version>${telegrambot-chatting-dto.version}</version>
-    </dependency>
   </dependencies>
 
   <build>
