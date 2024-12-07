@@ -1,0 +1,44 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0.0.1
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /telegram-bot/signal:
+    post:
+      tags:
+        - TelegramBotSignalService
+      summary: Получение сигнала на покупку в лонг или продажу в шорт
+      description: Long signal
+      operationId: initLongSignal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TradingSignalDto'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    TradingSignalDto:
+      type: object
+      properties:
+        signalType:
+          type: string
+          enum:
+            - short
+            - long
+        ticker:
+          type: string
+        figi:
+          type: string
+        companyName:
+          type: string

@@ -1,4 +1,4 @@
-package ru.tinkoff.trade.dto;
+package ru.tinkoff.trade.telegrambot.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
