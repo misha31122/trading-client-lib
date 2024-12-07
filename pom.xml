@@ -23,6 +23,7 @@
     <module>tinkoff-rest-client</module>
     <module>custom-uuid-generator</module>
     <module>telegrambot-chatting-client</module>
+    <module>telegrambot-chatting-dto</module>
   </modules>
 
   <properties>

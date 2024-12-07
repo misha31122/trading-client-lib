@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>telegrambot-chatting-dto</artifactId>
-  <name>Custom uuid generator</name>
+  <name>Telegrambot chatting dto</name>
   <description>Служебная библиотека для dto для общения с сервисом телеграм бота
   </description>
   <packaging>jar</packaging>
