@@ -11,8 +11,8 @@ paths:
       tags:
         - TelegramBotSignalService
       summary: Получение сигнала на покупку в лонг или продажу в шорт
-      description: Long signal
-      operationId: initLongSignal
+      description: signal long or short
+      operationId: initSignal
       requestBody:
         content:
           application/json:
